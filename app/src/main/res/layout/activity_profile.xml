@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ProfileActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Профіль користувача"
+            android:textSize="25sp" />
+
+        <TextView
+            style="@style/MainText"
+            android:text="Ім'я*" />
+
+        <EditText
+            android:id="@+id/firstNameEditText"
+            style="@style/MainText"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            style="@style/MainText"
+            android:text="Прізвище*" />
+
+        <EditText
+            android:id="@+id/lastNameEditText"
+            style="@style/MainText"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            style="@style/MainText"
+            android:text="По-батькові" />
+
+        <EditText
+            android:id="@+id/middleNameEditText"
+            style="@style/MainText"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            style="@style/MainText"
+            android:text="Стать*" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/maleCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="4dp"
+                android:text="Чол."
+                android:textColor="@android:color/primary_text_light"
+                android:textSize="20sp" />
+
+            <CheckBox
+                android:id="@+id/femaleCheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="64dp"
+                android:layout_marginTop="4dp"
+                android:text="Жін."
+                android:textColor="@android:color/primary_text_light"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/MainText"
+            android:text="Дата народження*" />
+
+
+        <EditText
+            android:id="@+id/birthday_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="32dp"
+            android:background="@android:color/darker_gray"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
+
+
+        <TextView
+            style="@style/MainText"
+            android:text="Номер телефону*" />
+
+        <EditText
+            android:id="@+id/phoneNumberEditText"
+            style="@style/MainText"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            style="@style/MainText"
+            android:text="Електронна пошта" />
+
+        <EditText
+            android:id="@+id/email_edit_text"
+            style="@style/MainText"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            style="@style/MainText"
+            android:text="Адреса" />
+
+        <EditText
+            android:id="@+id/address_edit_text"
+            style="@style/MainText"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:text="* відмічені обов'язкові для заповнення поля" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:background="@color/colorPrimary"
+            android:onClick="saveProfile"
+            android:text="Зберегти"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+</ScrollView>

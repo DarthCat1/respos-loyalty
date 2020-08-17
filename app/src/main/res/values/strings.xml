@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ResPOS Loyalty</string>
+    <string name="about">Інформація</string>
+    <string name="exit">Вихід</string>
+    <string name="logout">Змінити користувача</string>
+    <string name="about_toast">Created by Sergey Bely.\ne-mail: test.bely@gmail.com </string>
+    <string name="profile">Профіль користувача</string>
+
+
+</resources>
