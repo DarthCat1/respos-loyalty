@@ -12,6 +12,11 @@ import java.io.Serializable;
 
 public class Authenticator implements LoyaltyConnectable, Serializable {
     private String token;
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
+
     private String errorMessage;
 
     public Authenticator() {

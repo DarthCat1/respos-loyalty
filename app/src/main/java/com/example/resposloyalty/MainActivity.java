@@ -65,12 +65,16 @@ public class MainActivity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if (auth.getErrorMessage().equals("") & auth.getToken() != null) {
+        if (auth.getErrorMessage().equals("")) {
             Intent intent = new Intent(MainActivity.this, ConfirmedClientActivity.class);
             intent.putExtra("auth", auth);
             startActivity(intent);
-        } else
+        } else {
             info.setText(auth.getErrorMessage());
+            auth.setErrorMessage("");
+        }
+
+
     }
 
     public void showHidePass(View view) {
