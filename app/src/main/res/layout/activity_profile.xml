@@ -20,43 +20,45 @@
             android:textSize="25sp" />
 
         <TextView
-            style="@style/MainText"
+            android:id="@+id/first_name_text_view"
+            style="@style/ProfileMainText"
             android:text="Ім'я*" />
 
         <EditText
-            android:id="@+id/firstNameEditText"
-            style="@style/MainText"
-            android:background="@android:color/darker_gray" />
+            android:id="@+id/first_name_edit_text"
+            style="@style/ProfileMainText"
+            android:background="@drawable/valid_field_background" />
 
         <TextView
-            style="@style/MainText"
+            android:id="@+id/last_name_text_view"
+            style="@style/ProfileMainText"
             android:text="Прізвище*" />
 
         <EditText
-            android:id="@+id/lastNameEditText"
-            style="@style/MainText"
-            android:background="@android:color/darker_gray" />
+            android:id="@+id/last_name_edit_text"
+            style="@style/ProfileMainText"
+            android:background="@drawable/valid_field_background" />
 
         <TextView
-            style="@style/MainText"
+            style="@style/ProfileMainText"
             android:text="По-батькові" />
 
         <EditText
-            android:id="@+id/middleNameEditText"
-            style="@style/MainText"
-            android:background="@android:color/darker_gray" />
+            android:id="@+id/middle_name_edit_text"
+            style="@style/ProfileMainText"
+            android:background="@drawable/valid_field_background" />
 
         <TextView
-            style="@style/MainText"
+            android:id="@+id/sex_text_view"
+            style="@style/ProfileMainText"
             android:text="Стать*" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ProfileMainText"
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/maleCheckBox"
+                android:id="@+id/male_check_box"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
@@ -66,7 +68,7 @@
                 android:textSize="20sp" />
 
             <CheckBox
-                android:id="@+id/femaleCheckBox"
+                android:id="@+id/female_check_box"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="64dp"
@@ -77,7 +79,8 @@
         </LinearLayout>
 
         <TextView
-            style="@style/MainText"
+            android:id="@+id/birthday_text_view"
+            style="@style/ProfileMainText"
             android:text="Дата народження*" />
 
 
@@ -88,37 +91,39 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="4dp"
             android:layout_marginRight="32dp"
-            android:background="@android:color/darker_gray"
+            android:background="@drawable/valid_field_background"
             android:textAllCaps="false"
             android:textSize="20sp" />
 
 
         <TextView
-            style="@style/MainText"
+            android:id="@+id/phone_number_text_view"
+            style="@style/ProfileMainText"
             android:text="Номер телефону*" />
 
         <EditText
-            android:id="@+id/phoneNumberEditText"
-            style="@style/MainText"
-            android:background="@android:color/darker_gray" />
+            android:id="@+id/phone_number_edit_text"
+            style="@style/ProfileMainText"
+            android:background="@drawable/valid_field_background" />
 
         <TextView
-            style="@style/MainText"
+            android:id="@+id/email_text_view"
+            style="@style/ProfileMainText"
             android:text="Електронна пошта" />
 
         <EditText
             android:id="@+id/email_edit_text"
-            style="@style/MainText"
-            android:background="@android:color/darker_gray" />
+            style="@style/ProfileMainText"
+            android:background="@drawable/valid_field_background" />
 
         <TextView
-            style="@style/MainText"
+            style="@style/ProfileMainText"
             android:text="Адреса" />
 
         <EditText
             android:id="@+id/address_edit_text"
-            style="@style/MainText"
-            android:background="@android:color/darker_gray" />
+            style="@style/ProfileMainText"
+            android:background="@drawable/valid_field_background" />
 
         <TextView
             android:layout_width="wrap_content"

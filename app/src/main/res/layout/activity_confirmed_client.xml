@@ -22,82 +22,66 @@
 
     <TextView
         android:id="@+id/cardTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ConfirmedClientMainText"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="Картка:"
-        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/confirmedClientTitle"
         tools:ignore="MissingConstraints" />
 
     <Spinner
         android:id="@+id/cardsSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/ConfirmedClientMainText"
         android:layout_marginStart="16dp"
-        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardTextView"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/cardCategoryText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/ConfirmedClientMainText"
         android:layout_marginTop="8dp"
         android:text="Категорія карти:"
-        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/cardTextView"
         app:layout_constraintTop_toBottomOf="@+id/cardsSpinner"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/cardCategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
+        style="@style/ConfirmedClientMainText"
         app:layout_constraintStart_toStartOf="@+id/cardCategoryText"
         app:layout_constraintTop_toBottomOf="@+id/cardCategoryText"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/cardStatusText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/ConfirmedClientMainText"
         android:layout_marginTop="8dp"
         android:text="Статус картки:"
-        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/cardCategory"
         app:layout_constraintTop_toBottomOf="@+id/cardCategory"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/cardStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
+        style="@style/ConfirmedClientMainText"
         app:layout_constraintStart_toStartOf="@+id/cardStatusText"
         app:layout_constraintTop_toBottomOf="@+id/cardStatusText"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/cardActivateDateText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/ConfirmedClientMainText"
         android:layout_marginTop="8dp"
         android:text="Дата активації:"
-        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/cardStatus"
         app:layout_constraintTop_toBottomOf="@+id/cardStatus"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/cardActivateDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
+        style="@style/ConfirmedClientMainText"
         app:layout_constraintStart_toStartOf="@+id/cardActivateDateText"
         app:layout_constraintTop_toBottomOf="@+id/cardActivateDateText"
         tools:ignore="MissingConstraints" />
