@@ -12,9 +12,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.TimeZone;
 
 public class ConfirmedClientActivity extends AppCompatActivity {
 
@@ -89,9 +90,17 @@ public class ConfirmedClientActivity extends AppCompatActivity {
                     selectedCard = (ClientCard) cardsSpinner.getSelectedItem();
                     cardCategory.setText(selectedCard.getCardCategory());
                     cardStatus.setText(selectedCard.getStatus());
-                    cardActivateDate.setText(selectedCard.getActivateDate().equals(new Date(0l)) ?
-                            "Необхідна активація" : new SimpleDateFormat("dd MMM yyyy HH:mm")
-                            .format(selectedCard.getActivateDate()));
+
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+                    dateFormat.setTimeZone(TimeZone.getDefault());
+
+                    try {
+                        cardActivateDate.setText(selectedCard.getActivateDate().equals(dateFormat.parse("01-01-1970 00:00")) ?
+                                "Картка не активована" : dateFormat
+                                .format(selectedCard.getActivateDate()));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
                     clientBonus.setText(String.valueOf(client.getBonusCounts()));
                 }
             }
