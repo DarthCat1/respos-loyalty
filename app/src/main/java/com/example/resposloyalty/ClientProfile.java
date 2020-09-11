@@ -186,6 +186,52 @@ public class ClientProfile implements LoyaltyConnectable, Runnable {
 
     }
 
+    boolean isValidFirstName(String name) {
+        if (!name.matches("[a-zA-Zа-яА-Я]+")) {
+            this.errorMessage += "Ім'я повинно складатися тільки з літер\n";
+            return false;
+        }
+        return true;
+    }
+
+    boolean isValidLastName(String name) {
+        if (!name.matches("[a-zA-Zа-яА-Я]+")) {
+            this.errorMessage += "Прізвище повинно складатися тільки з літер\n";
+            return false;
+        }
+        return true;
+    }
+
+    boolean isValidBirthday(Date birthday) {
+        if (birthday.compareTo(new Date(0)) == 0) {
+            this.errorMessage += "Встановіть дату народження\n";
+            return false;
+        }
+        //  check if birthday was 18 or more years ago
+        else if ((new Date().getTime() - birthday.getTime()) < 568025136000l) {
+            this.errorMessage += "Ваш вік повинен бути більше 18 років\n";
+            return false;
+        }
+
+        return true;
+    }
+
+    boolean isValidPhoneNumber(String phoneNumber) {
+        if (!phoneNumber.matches("\\+380\\d{9}")) {
+            this.errorMessage += "Формат номера телефону +380ХХХХХХХХХ\n";
+            return false;
+        }
+        return true;
+    }
+
+    boolean isValidEmail(String email) {
+        if (!email.matches("\\w+@[a-z]+\\.[a-z]+")) {
+            this.errorMessage += "Невірний формат електронної пошти\n";
+            return false;
+        }
+        return true;
+    }
+
     @Override
     public void run() {
         receiveProfileInfo();

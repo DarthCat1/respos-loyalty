@@ -2,6 +2,7 @@ package com.example.resposloyalty;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.Menu;
@@ -12,6 +13,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,10 +45,10 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
-        firstNameText = findViewById(R.id.firstNameEditText);
-        lastNameText = findViewById(R.id.lastNameEditText);
-        middleNameText = findViewById(R.id.middleNameEditText);
-        phoneNumberText = findViewById(R.id.phoneNumberEditText);
+        firstNameText = findViewById(R.id.first_name_edit_text);
+        lastNameText = findViewById(R.id.last_name_edit_text);
+        middleNameText = findViewById(R.id.middle_name_edit_text);
+        phoneNumberText = findViewById(R.id.phone_number_edit_text);
         emailText = findViewById(R.id.email_edit_text);
         addressText = findViewById(R.id.address_edit_text);
         birthdayText = findViewById(R.id.birthday_edit_text);
@@ -70,8 +72,8 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        maleCheckBox = findViewById(R.id.maleCheckBox);
-        femaleCheckBox = findViewById(R.id.femaleCheckBox);
+        maleCheckBox = findViewById(R.id.male_check_box);
+        femaleCheckBox = findViewById(R.id.female_check_box);
         maleCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -121,6 +123,11 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public void saveProfile(View view) {
+        if (!isValidProfile()) {
+            Toast.makeText(this, clientProfile.getErrorMessage(), Toast.LENGTH_LONG).show();
+            clientProfile.setErrorMessage("");
+            return;
+        }
         clientProfile.setFirstName(firstNameText.getText().toString());
         clientProfile.setLastName(lastNameText.getText().toString());
         clientProfile.setMiddleName(middleNameText.getText().toString());
@@ -175,6 +182,55 @@ public class ProfileActivity extends AppCompatActivity {
         } else {
             femaleCheckBox.setChecked(true);
         }
+    }
 
+    protected boolean isValidProfile() {
+        boolean isValidFields = true;
+        boolean markRequired;
+
+        markRequired = !clientProfile.isValidFirstName(firstNameText.getText().toString());
+        markInvalidField(markRequired, (TextView) findViewById(R.id.first_name_text_view));
+        if (markRequired)
+            isValidFields = false;
+
+        markRequired = !clientProfile.isValidLastName(lastNameText.getText().toString());
+        markInvalidField(markRequired, (TextView) findViewById(R.id.last_name_text_view));
+        if (markRequired)
+            isValidFields = false;
+
+        try {
+            markRequired = !clientProfile.isValidBirthday(new SimpleDateFormat("dd/MM/yyyy").parse(birthdayText.getText().toString()));
+            markInvalidField(markRequired, (TextView) findViewById(R.id.birthday_text_view));
+            if (markRequired)
+                isValidFields = false;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        markRequired = !clientProfile.isValidPhoneNumber(phoneNumberText.getText().toString());
+        markInvalidField(markRequired, (TextView) findViewById(R.id.phone_number_text_view));
+        if (markRequired)
+            isValidFields = false;
+
+        markRequired = !clientProfile.isValidEmail(emailText.getText().toString());
+        markInvalidField(markRequired, (TextView) findViewById(R.id.email_text_view));
+        if (markRequired) {
+            isValidFields = false;
+        }
+
+        markRequired = (!maleCheckBox.isChecked() && !femaleCheckBox.isChecked());
+        markInvalidField(markRequired, (TextView) findViewById(R.id.sex_text_view));
+        if (markRequired) {
+            clientProfile.setErrorMessage(clientProfile.getErrorMessage() + "Вкажіть стать\n");
+            isValidFields = false;
+        }
+
+
+        return isValidFields;
+    }
+
+    protected void markInvalidField(boolean markRequired, TextView view) {
+        int defaultColor = getResources().getColor(R.color.mainText);
+        view.setTextColor(markRequired ? Color.RED : defaultColor);
     }
 }
